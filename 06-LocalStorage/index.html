@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+       button{
+        padding: 10px 20px;
+       }
+    </style>
+</head>
+<body>
+    <!-- Save and retrieve a user's dark/light theme preference. -->
+     <button id="toggletheme">Toggle Theme</button>
+     <script>
+        const button = document.getElementById("toggletheme");
+        const savedTheme = localStorage.getItem("theme"); // Check if a theme is saved in local storage
+
+        if (savedTheme){
+            document.body.className = savedTheme; //Apply saved theme
+        }
+
+        button.addEventListener("click", () => {
+            const currentTheme = document.body.className;
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+            document.body.className = newTheme;
+            localStorage.setItem("theme", newhTheme); //save to local storage
+        });
+     </script>
+</body>
+</html>
